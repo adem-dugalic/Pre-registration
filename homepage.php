@@ -3,7 +3,7 @@ session_start();
 if(!isset($_SESSION['active'])) 
   header("Location: index.php");
 require 'dbconfig/config.php';
-$user = $_SESSION['username'];
+$counter=0;
 ?>
 <!DOCTYPE html>
 <html>
@@ -47,7 +47,7 @@ $user = $_SESSION['username'];
       <span class="bell-bottom"></span>
       <span class="bell-rad"></span>
       </div>
-      </div>
+  </div>
     </a>
     </p>
     </div>
@@ -60,6 +60,7 @@ $user = $_SESSION['username'];
     </ul>
   </nav>
 </aside>
+<<<<<<< HEAD
 
 
 <div class="container">
@@ -80,6 +81,8 @@ $user = $_SESSION['username'];
       </div>
    </div>
 
+=======
+>>>>>>> c376f84823ca068fbeee05c498105752aa6a811f
 <?php
     if(isset($_POST['logout'])){
     session_destroy();
