@@ -59,11 +59,7 @@ $user = $_SESSION['username'];
       <li><a><form action="homepage.php" method="post" enctype="multipart/form-data"><button class="btnnn" name="logout">Log out</button></form></a></li>
     </ul>
   </nav>
-
-
-
 </aside>
-
 
 
 <div class="container">
