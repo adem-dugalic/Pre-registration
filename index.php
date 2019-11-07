@@ -9,6 +9,22 @@ session_start();
 	<link rel="stylesheet" type="text/css" href="css/indexstyle.css">
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script type="text/javascript" src="js/main.js"></script>
+           <script type="text/javascript">
+                var sel1 = document.querySelector('#sel1');
+                var sel2 = document.querySelector('#sel2');
+                var options2 = sel2.querySelectorAll('option');
+
+                function giveSelection(selValue) {
+                  sel2.innerHTML = '';
+                  for(var i = 0; i < options2.length; i++) {
+                    if(options2[i].dataset.option === selValue) {
+                      sel2.appendChild(options2[i]);
+                    }
+                  }
+                }
+
+                giveSelection(sel1.value);
+              </script>
 </head>
 <body class="bg">
   <div class="header">
@@ -58,41 +74,40 @@ session_start();
               <input name="username1" placeholder="ID" type="text" />
               <input name="password1" placeholder="Password" type="Password" />
               <input name="cpassword" placeholder="Confirm Password" type="Password" />
-            <select name="faculty" onchange="this.form.submit();">
+            <select id="sel1" onchange="giveSelection(this.value)" style="margin-left: 8.5%; height: 10%; width: 40%;text-align-last: center; text-align: center;">
+                <option value="" disabled selected>Faculty</option>
                 <option value="FENS">FENS</option>
                 <option value="FAS">FAS</option>
                 <option value="FBA">FBA</option>
                 <option value="FL">FL</option>
                 <option value="FE">FE</option>
             </select>
-            <select name="program">
-              <?php
-              if($_POST[faculty]=="FENS"){
-                echo '<option value="CS">CS</option>
-                      <option value="SE">SE</option>
-                      <option value="EE">EE</option>
-                      <option value="BIO">BIO</option>
-                      <option value="ARCH">ARCH</option>';
-              }else if($_POST[faculty]=="FAS"){
-                echo '<option value="PSY">PSY</option>
-                      <option value="SPS">SPS</option>
-                      <option value="VAV">VAV</option>
-                      <option value="EL">EL</option>
-                      <option value="CULT">CULT</option>';
-              }else if($_POST[faculty]=="FBA"){
-                echo '<option value="IBF">IBF</option>
-                      <option value="IR">IR</option>
-                      <option value="ECO">ECO</option>
-                      <option value="MAN">MAN</option>';
-              }else if($_POST[faculty]=="FL"){
-                echo '<option value="ELL">ELL</option>
-                      <option value="TLL">TLL</option>
-                      <option value="CEI">CEI</option>';
-              }else{
-                echo '<option value="BA">BA</option>
-                      <option value="MA1">MA1</option>
-                      <option value="MA2">MA2</option>';
-              }?>
+            <select id="sel2" style="margin-left: 2%; height: 10%; width: 40%; text-align-last: center;">
+                      <option data-option="FENS" disabled selected>Program</option>
+                      <option data-option="FENS">CS</option>
+                      <option data-option="FENS">SE</option>
+                      <option data-option="FENS">EE</option>
+                      <option data-option="FENS">BIO</option>
+                      <option data-option="FENS">ARCH</option>
+                      <option data-option="FAS" disabled selected>Program</option>
+                      <option data-option="FAS">PSY</option>
+                      <option data-option="FAS">SPS</option>
+                      <option data-option="FAS">VAV</option>
+                      <option data-option="FAS">EL</option>
+                      <option data-option="FAS">CULT</option>
+                      <option data-option="FBA" disabled selected>Program</option>
+                      <option data-option="FBA">IBF</option>
+                      <option data-option="FBA">IR</option>
+                      <option data-option="FBA">ECO</option>
+                      <option data-option="FBA">MAN</option>
+                      <option data-option="FL" disabled selected>Program</option>
+                      <option data-option="FL">ELL</option>
+                      <option data-option="FL">TLL</option>
+                      <option data-option="FL">CEI</option>
+                      <option data-option="FE" disabled selected>Program</option>
+                      <option data-option="FE">BA</option>
+                      <option data-option="FE">MA1</option>
+                      <option data-option="FE">MA2</option>';
             </select>
               <div class="cup">
                   <button name="register">
