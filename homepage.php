@@ -3,7 +3,7 @@ session_start();
 if(!isset($_SESSION['active'])) 
   header("Location: index.php");
 require 'dbconfig/config.php';
-$counter=0;
+$user = $_SESSION['username'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -47,7 +47,7 @@ $counter=0;
       <span class="bell-bottom"></span>
       <span class="bell-rad"></span>
       </div>
-  </div>
+      </div>
     </a>
     </p>
     </div>
@@ -59,7 +59,31 @@ $counter=0;
       <li><a><form action="homepage.php" method="post" enctype="multipart/form-data"><button class="btnnn" name="logout">Log out</button></form></a></li>
     </ul>
   </nav>
+
+
+
 </aside>
+
+
+
+<div class="container">
+      <div class="row c" id="courseList">
+      <?php 
+      $query= "SELECT * from studentcourses where student_id = $user";
+      $test=mysqli_query($con,$query);
+      while($smt=mysqli_fetch_array($test)){
+      echo '
+              <table>
+                <tr>
+                  <td>'.$smt['course_id'].'<td>
+                </tr>
+              </table>
+          ';
+        }
+    ?>
+      </div>
+   </div>
+
 <?php
     if(isset($_POST['logout'])){
     session_destroy();
