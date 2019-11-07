@@ -59,7 +59,7 @@ session_start();
               <input name="username1" placeholder="ID" type="text" />
               <input name="password1" placeholder="Password" type="Password" />
               <input name="cpassword" placeholder="Confirm Password" type="Password" />
-            <select id="sel1" onchange="giveSelection(this.value)" style="margin-left: 8.5%; height: 10%; width: 40%;text-align-last: center; text-align: center;">
+            <select id="sel1" name="sel1" onchange="populate(this.id,'sel2')" style="margin-left: 8.5%; height: 10%; width: 40%;text-align-last: center; text-align: center;">
                 <option value="" disabled selected>Faculty</option>
                 <option value="FENS">FENS</option>
                 <option value="FAS">FAS</option>
@@ -67,32 +67,8 @@ session_start();
                 <option value="FL">FL</option>
                 <option value="FE">FE</option>
             </select>
-            <select id="sel2" style="margin-left: 2%; height: 10%; width: 40%; text-align-last: center;">
-                      <option data-option="FENS" disabled selected>Program</option>
-                      <option data-option="FENS">CS</option>
-                      <option data-option="FENS">SE</option>
-                      <option data-option="FENS">EE</option>
-                      <option data-option="FENS">BIO</option>
-                      <option data-option="FENS">ARCH</option>
-                      <option data-option="FAS" disabled selected>Program</option>
-                      <option data-option="FAS">PSY</option>
-                      <option data-option="FAS">SPS</option>
-                      <option data-option="FAS">VAV</option>
-                      <option data-option="FAS">EL</option>
-                      <option data-option="FAS">CULT</option>
-                      <option data-option="FBA" disabled selected>Program</option>
-                      <option data-option="FBA">IBF</option>
-                      <option data-option="FBA">IR</option>
-                      <option data-option="FBA">ECO</option>
-                      <option data-option="FBA">MAN</option>
-                      <option data-option="FL" disabled selected>Program</option>
-                      <option data-option="FL">ELL</option>
-                      <option data-option="FL">TLL</option>
-                      <option data-option="FL">CEI</option>
-                      <option data-option="FE" disabled selected>Program</option>
-                      <option data-option="FE">BA</option>
-                      <option data-option="FE">MA1</option>
-                      <option data-option="FE">MA2</option>';
+            <select id="sel2" name="sel2"  style="margin-left: 2%; height: 10%; width: 40%; text-align-last: center;">
+            <option class="option" value="" disabled selected>Program</option>  
             </select>
               <div class="cup">
                   <button name="register">
@@ -151,8 +127,8 @@ session_start();
     $username1 = $_POST['username1'];
     $password1 = $_POST['password1'];
     $cpassword = $_POST['cpassword'];
-    $faculty = $_POST['faculty'];
-    $program = $_POST['program'];
+    $faculty = $_POST['sel1'];
+    $program = $_POST['sel2'];
 
     if($password1 == $cpassword){
 

@@ -1,3 +1,29 @@
+function populate(s1,s2){
+  var s1 = document.getElementById(s1);
+  var s2 = document.getElementById(s2);
+  s2.innerHTML = "";
+  if(s1.value == "FENS"){
+    var optionArray = ["Program|Program","CS|CS","SE|SE","EE|EE","ARCH|ARCH","BIO|BIO"];
+  } else if(s1.value == "FAS"){
+    var optionArray = ["Program|Program","PSY|PSY","SPS|SPS","VAV|VAV","EL|EL","CULT|CULT"];
+  }else if(s1.value == "FBA"){
+    var optionArray = ["Program|Program","IBF|IBF","IR|IR","ECO|ECO","MAN|MAN"];
+  }else if(s1.value == "FL"){
+    var optionArray = ["Program|Program","ELL|ELL","TLL|TLL","CEI|CEI"];
+  }else if(s1.value == "FE"){
+    var optionArray = ["Program|Program","BA|BA","MA1|MA1","MA2|MA2"];
+  }
+
+  for(var option in optionArray){
+    var pair = optionArray[option].split("|");
+    var newOption = document.createElement("option");
+    newOption.value = pair[0];
+    newOption.innerHTML = pair[1];
+    s2.options.add(newOption);
+  }
+}
+
+
 $(document).ready(function(){
 	$("#faculty").click(function() {
 		var faculty = $('#faculty').val();
@@ -6,20 +32,6 @@ $(document).ready(function(){
 				$('#courseList').text(data);
 			});
 	});
-                var sel1 = document.querySelector('#sel1');
-                var sel2 = document.querySelector('#sel2');
-                var options2 = sel2.querySelectorAll('option');
-
-                function giveSelection(selValue) {
-                  sel2.innerHTML = '';
-                  for(var i = 0; i < options2.length; i++) {
-                    if(options2[i].dataset.option === selValue) {
-                      sel2.appendChild(options2[i]);
-                    }
-                  }
-                }
-
-                giveSelection(sel1.value);
 
 	$(".info-item .btn").click(function(){
   	$(".container").toggleClass("log-in");
