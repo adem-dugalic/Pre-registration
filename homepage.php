@@ -60,8 +60,6 @@ $counter=0;
     </ul>
   </nav>
 </aside>
-<<<<<<< HEAD
-
 
 <div class="container">
       <div class="row c" id="courseList">
@@ -81,8 +79,6 @@ $counter=0;
       </div>
    </div>
 
-=======
->>>>>>> c376f84823ca068fbeee05c498105752aa6a811f
 <?php
     if(isset($_POST['logout'])){
     session_destroy();
